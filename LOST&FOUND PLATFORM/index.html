@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .login-container {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .login-container input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .login-container button {
+      padding: 10px 20px;
+      border: none;
+      background: #0077cc;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #loading {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.5rem;
+      color: #0077cc;
+    }
+
+    .dot {
+      animation: blink 1s infinite;
+    }
+
+    .dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    .dot:nth-child(4) {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #a8edea, #fed6e3);
+  color: #333;
+}
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login to Lost & Found</h2>
+    <input type="text" id="username" placeholder="Enter your name" required />
+    <input type="password" id="password" placeholder="Enter password" required />
+    <button onclick="login()">Login</button> <p style="margin-top: 15px; color: #555;">
+  Don't have an account?
+  <a href="Register.html" style="color: #0077cc; text-decoration: underline;">Register here</a>
+</p>
+
+    <!-- Loading animation -->
+    <div id="loading">
+      Logging in<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value;
+
+      if (user && pass === "1234") {
+        // Hide form elements
+        document.querySelector("input[type='text']").style.display = "none";
+        document.querySelector("input[type='password']").style.display = "none";
+        document.querySelector("button").style.display = "none";
+
+        // Show loading animation
+        document.getElementById("loading").style.display = "block";
+
+        // Simulate loading delay
+        setTimeout(() => {
+          localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("username", user);
+          window.location.href = "home.html";
+        }, 4000);
+      } else {
+        alert("Invalid login. Hint: any name, password = 1234");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Report Lost Item</title>
+  <link rel="stylesheet" type="text/css" href="reportlost.css">
+</head>
+<script>
+  document.getElementById("lostForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Stop form from submitting immediately
+
+    // Basic input check
+    const itemName = document.getElementById("item-name").value.trim();
+    const description = document.getElementById("description").value.trim();
+    const location = document.getElementById("location").value.trim();
+    const date = document.getElementById("date").value;
+    const contact = document.getElementById("contact").value.trim();
+
+    if (!itemName || !description || !location || !date || !contact) {
+      alert("Please fill in all fields before submitting.");
+      return;
+    }
+
+    // Show confirmation
+    const confirmed = confirm("Are you sure you want to submit this lost item report?");
+    if (confirmed) {
+      // Simulate redirect (since there's no backend)
+      window.location.href = "thank-you.html";
+    }
+  });
+</script>
+<body>
+  <header>
+    <h1>Lost & Found Platform</h1>
+    <nav>
+      <ul>
+        <li><h1><a href="home.html">Home</a></h1></li>
+        <li><h1><a href="reportlost.html">Report lost</a></h1></li>
+        <li><h1><a href="reportfound.html">Report Found</a></h1></li>
+        <li><h1><a href="listing.html">Listings</a></h1></li>
+        <li><h1><a href="social.html">Social Media</a></h1></li>
+      </ul>
+    </nav>
+  </header>
+  <img src="lost2.JPEG" class="hh">
+  <main>
+    <section class="form-container">
+      <h2>Report a Lost Item</h2>
+      <form action="thankyou.html" method="get">
+        <label for="item-name">Item Name:</label>
+        <input type="text" id="item-name" name="item-name" required />
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="3" required></textarea>
+
+        <label for="location">Last Seen Location:</label>
+        <input type="text" id="location" name="location" required />
+
+        <label for="date">Date Lost:</label>
+        <input type="date" id="date" name="date" required />
+
+        <label for="contact">Your Contact Info:</label>
+        <input type="text" id="contact" name="contact" required />
+
+        <button type="submit">Submit Report</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Lost & Found Platform</p>
+  </footer>
+</body>
+</html>

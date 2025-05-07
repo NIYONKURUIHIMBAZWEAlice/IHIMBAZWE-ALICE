@@ -1,0 +1,163 @@
+ body{
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #a8edea, #fed6e3);
+  color: #333;
+}
+
+
+header {
+  background-color: #ffffffcc;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+nav a:hover{
+  background-color: ;
+  color: orange;
+}
+
+.intro {
+  padding: 40px;
+  text-align: center;
+  background-color: #ffffffcc;
+  margin: 40px auto;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+nav ul li{
+  padding: 0 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  background-color: skyblue;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+@media (max-width: 500px) {
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+
+
+@keyframes slideFadeIn {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Apply to nav links */
+nav li {
+  animation: slideFadeIn 0.6s ease forwards;
+  opacity: 0; /* Start hidden */
+}
+
+/* Add stagger effect using nth-child */
+nav li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+nav li:nth-child(2) {
+  animation-delay: 0.4s;
+}
+nav li:nth-child(3) {
+  animation-delay: 0.6s;
+}
+nav li:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+
+
+
+/* Fade & slide up for main heading */
+.intro h2 {
+  animation: slideFadeIn 0.6s ease forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+/* Fade & slide for paragraph */
+.intro p {
+  animation: slideFadeIn 0.6s ease forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+}
+logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+@keyframes rotateLogo {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.logo {
+  animation: rotateLogo 5s linear infinite;
+  width: 80px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+.video-container {
+  max-width: 100%; /* Ensures responsiveness */
+  margin: 0 auto; /* Center the video */
+  padding: 20px;
+}
+
+video {
+  border: 2px solid #000;
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+img{
+  float: left;
+  width: 250px;
+  height: 200px;
+  padding-top: 10px;
+}
+.fg{
+  float: right;
+  padding-top:10px;
+}
